@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/clock2.jpg">
+    <title>wall Clock</title>
+</head>
+
+<body>
+
+    <div id="container" class="container">
+        <div class="box">
+            <div class="checkbox">
+                <input class="toggle" type="checkbox" id="checking">
+                <label class="label" for="checking"></label>
+            </div>
+            <div class="box2"></div>
+            <form>
+                <div class="digitalTime">
+                    <div class="digital" id="digi">
+                        <p class="hours" id="hours"></p>
+                        <p class="mins" id="mins"></p>
+                        <p class="secs" id="secs"></p>
+                    </div>
+                    <div class="dates" id="dates"></div>
+                </div>
+            </form>
+            <div class="clock">
+                <img class="clockface" src="images/analog.png" alt="anlog face">
+                <div class="hour">
+                    <div class="hr" id="hr"></div>
+                </div>
+                <div class="min">
+                    <div class="mn" id="mn"></div>
+                </div>
+                <div class="sec">
+                    <div class="sc" id="sc"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
