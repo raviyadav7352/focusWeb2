@@ -5,14 +5,23 @@
     const sc = document.querySelector("#sc")
     const check = document.getElementById("checking");
     const clockScreen = document.querySelector(".clock")
+    const linkbtn = Array.from(document.querySelectorAll("#todoapp"))
+    const dates = document.querySelector(".dates")
+    const digitaltime = document.querySelector(".digital")
+
     console.log(check.checked)
     document.addEventListener("click", function (e) {
         let elem = e.target
         let elemid = elem.getAttribute("class")
         if (check.checked) {
-            clockScreen.classList.add("lightmode")
-
-        } else { clockScreen.classList.remove("lightmode") }
+            linkbtn.forEach((link=>{
+                link.classList.toggle("lightmode")
+                console.log(link)
+            }))
+            clockScreen.classList.toggle("lightmode")
+            dates.classList.toggle("lightmode")
+            digitaltime.classList.toggle("lightmode")
+        }
 
         console.log(elemid)
     })
