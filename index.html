@@ -10,19 +10,17 @@
     <title>wall Clock</title>
 </head>
 
-<body>
+<body id="clockBody">
+
 
     <div id="container" class="container">
         <div class="box">
             <div class="checkbox">
-                <input class="toggle" type="checkbox" id="checking">
+                <input purpose="darkmode" class="toggle" type="checkbox" id="checking">
                 <label class="label" for="checking"></label>
             </div>
-            <ul class="linklist">
-                <li><a id="todoapp" class="linkpage" target="self" href="https://raviyadav7352.github.io/todolist/">todo</a></li>
-                <li><a id="todoapp" class="linkpage" target="self" href="https://raviyadav7352.github.io/wedding-app/">wedding decor</a></li>
-                <li><a id="todoapp" class="linkpage" target="self" href="https://raviyadav7352.github.io/focus-webpage/">focus-web</a></li>
-                <li><a id="todoapp" class="linkpage" target="self" href="https://raviyadav7352.github.io/losAngeles-trip/">los-anglese</a></li>
+            <ul class="linklist" id="linklist">
+                <!-- data from object -->
             </ul>
             <div class="box2"></div>
             <form>
@@ -50,7 +48,6 @@
             </div>
         </div>
     </div>
-
     <script src="script.js"></script>
 
 </body>

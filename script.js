@@ -1,30 +1,42 @@
 (function clock() {
+    let linkData = [
+        {link:"https://raviyadav7352.github.io/todolist/",webName:"todolist"},
+        {link:"https://raviyadav7352.github.io/wedding-app/",webName:"wedding decor"},
+        {link:"https://raviyadav7352.github.io/focus-webpage/",webName:"focus-web"},
+        {link:"https://raviyadav7352.github.io/losAngeles-trip/",webName:"los-anglese"},
+        {link:"https://raviyadav7352.github.io/SweetStore-taste2buy/",webName:"sweet-store"},
+        {link:"https://raviyadav7352.github.io/testPaperUi/",webName:"test-paper"},
+        {link:"https://raviyadav7352.github.io/dreamSeven/",webName:"dream-11"},
+        {link:"https://raviyadav7352.github.io/card-ui-design/",webName:"music-pay"},
+
+    ]
     const deg = 6;
     const hr = document.querySelector("#hr")
     const mn = document.querySelector("#mn")
     const sc = document.querySelector("#sc")
     const check = document.getElementById("checking");
-    const clockScreen = document.querySelector(".clock")
-    const linkbtn = Array.from(document.querySelectorAll("#todoapp"))
-    const dates = document.querySelector(".dates")
-    const digitaltime = document.querySelector(".digital")
+    const clockBody = document.getElementById("clockBody")
 
-    console.log(check.checked)
     document.addEventListener("click", function (e) {
         let elem = e.target
-        let elemid = elem.getAttribute("class")
+        let purpose = elem.getAttribute("purpose")
+        if(purpose == "darkmode"){
         if (check.checked) {
-            linkbtn.forEach((link=>{
-                link.classList.toggle("lightmode")
-                console.log(link)
-            }))
-            clockScreen.classList.toggle("lightmode")
-            dates.classList.toggle("lightmode")
-            digitaltime.classList.toggle("lightmode")
-        }
-
-        console.log(elemid)
+            clockBody.classList.add("dark")
+        }else{clockBody.classList.remove("dark")}
+    }
     })
+    let linkShow = () =>{
+        let html = '';
+        linkData.forEach((item)=>{
+            html += `
+            <li><a id="todoapp" class="linkpage" target="self"
+            href=${item.link}>${item.webName}</a></li>
+            `
+        })
+        document.getElementById("linklist").innerHTML=html;
+    }
+    linkShow();
     setInterval(() => {
         let day = new Date();
         let hh = day.getHours() * 30;
@@ -38,9 +50,26 @@
         let secs = document.getElementById("secs");
 
         let dates = document.querySelector(".dates");
-        hours.innerText = day.getHours() + " :"
-        mins.innerText = day.getMinutes() + " :"
-        secs.innerText = day.getSeconds()
-        dates.innerText = day.toDateString()
+        let realHour = day.getHours();
+        let timeShift = realHour > 12 ? "PM" : "AM"
+        hours.innerText = (realHour > 12 ? realHour - 12 : realHour) + " :";
+        mins.innerText = day.getMinutes() + " : ";
+        secs.innerText = day.getSeconds() +" " + timeShift;
+        dates.innerText = day.toDateString();
     })
+    let syncDarkMode = () => {
+        let darkMode = JSON.parse(localStorage.getItem('dark'));
+        handleDarkmode(darkMode);
+    }
+
+    let bidnEvents = () => {
+        $parentDom.change(function (ev) {
+            let element = $(ev.target)
+            let purpose = element.attr("purpose")
+            if (purpose == "darkMode") {
+                let status = $darkSwitch.is(":checked");
+                handleDarkmode(status);
+            }
+        })
+    }
 })()
