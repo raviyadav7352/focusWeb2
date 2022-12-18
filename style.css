@@ -118,7 +118,7 @@
     }
 }
 
-form {
+.clockmain {
     position: absolute;
     border-radius: 20px;
     inset: 12px;
