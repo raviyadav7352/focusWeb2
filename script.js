@@ -57,19 +57,4 @@
         secs.innerText = day.getSeconds() +" " + timeShift;
         dates.innerText = day.toDateString();
     })
-    let syncDarkMode = () => {
-        let darkMode = JSON.parse(localStorage.getItem('dark'));
-        handleDarkmode(darkMode);
-    }
-
-    let bidnEvents = () => {
-        $parentDom.change(function (ev) {
-            let element = $(ev.target)
-            let purpose = element.attr("purpose")
-            if (purpose == "darkMode") {
-                let status = $darkSwitch.is(":checked");
-                handleDarkmode(status);
-            }
-        })
-    }
 })()
